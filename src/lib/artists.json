@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Amit Sharma",
+    "category": "Singer",
+    "priceRange": "1000-5000",
+    "location": "Delhi",
+    "languages": ["Hindi", "English"]
+  },
+  {
+    "id": 2,
+    "name": "Riya Khan",
+    "category": "Dancer",
+    "priceRange": "2000-7000",
+    "location": "Mumbai",
+    "languages": ["Hindi"]
+  }
+]
