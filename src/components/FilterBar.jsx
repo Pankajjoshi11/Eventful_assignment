@@ -1,6 +1,6 @@
-// src/components/FilterBar.jsx
 'use client';
 
+// FilterBar.jsx: Provides filter controls for category, location, and price range
 import { useState } from 'react';
 import {
   Select,
@@ -12,22 +12,30 @@ import {
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
-// Filter options
+// Predefined filter options
 const categories = ['Singer', 'Dancer', 'DJ', 'Speaker'];
 const priceRanges = ['1000-5000', '5000-10000', '10000+'];
 
 export function FilterBar({ onFilter }) {
+  // State for filter values
   const [filters, setFilters] = useState({
     category: '',
     location: '',
     priceRange: '',
   });
 
-  // Handle filter change
+  // Handle filter change for select and input fields
   const handleChange = (key, value) => {
     const updatedFilters = { ...filters, [key]: value };
     setFilters(updatedFilters);
-    onFilter(updatedFilters);
+    onFilter(updatedFilters); // Notify parent with updated filters
+  };
+
+  // Handle filter reset
+  const handleReset = () => {
+    const clearedFilters = { category: '', location: '', priceRange: '' };
+    setFilters(clearedFilters);
+    onFilter(clearedFilters);
   };
 
   return (
@@ -79,10 +87,7 @@ export function FilterBar({ onFilter }) {
       <Button
         variant="outline"
         className="mt-4"
-        onClick={() => {
-          setFilters({ category: '', location: '', priceRange: '' });
-          onFilter({ category: '', location: '', priceRange: '' });
-        }}
+        onClick={handleReset}
       >
         Reset Filters
       </Button>

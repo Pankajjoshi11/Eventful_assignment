@@ -16,7 +16,7 @@ export function ArtistCard({ artist }) {
       {/* Placeholder Image */}
       <div className="relative w-full h-40 mb-4">
         <Image
-          src="/placeholder.jpg" // Replace with actual image or artist.image
+          src={artist.profilePicture} // Replace with actual image or artist.image
           alt={artist.name}
           fill
           className="object-cover rounded"

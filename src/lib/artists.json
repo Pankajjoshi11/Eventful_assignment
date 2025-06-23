@@ -5,7 +5,8 @@
     "category": "Singer",
     "priceRange": "1000-5000",
     "location": "Delhi",
-    "languages": ["Hindi", "English"]
+    "languages": ["Hindi", "English"],
+    "profilePicture": "/donald.webp"
   },
   {
     "id": 2,
@@ -13,6 +14,52 @@
     "category": "Dancer",
     "priceRange": "2000-7000",
     "location": "Mumbai",
-    "languages": ["Hindi"]
+    "languages": ["Hindi"],
+    "profilePicture": "/donald.webp"
+  },
+  {
+    "id": 3,
+    "name": "Vikram Singh",
+    "category": "DJ",
+    "priceRange": "3000-8000",
+    "location": "Bangalore",
+    "languages": ["English", "Kannada"],
+    "profilePicture": "/donald.webp"
+  },
+  {
+    "id": 4,
+    "name": "Priya Menon",
+    "category": "Speaker",
+    "priceRange": "5000-10000",
+    "location": "Chennai",
+    "languages": ["Tamil", "English"],
+    "profilePicture": "/donald.webp"
+  },
+  {
+    "id": 5,
+    "name": "Neha Gupta",
+    "category": "Singer",
+    "priceRange": "2000-6000",
+    "location": "Kolkata",
+    "languages": ["Bengali", "Hindi"],
+    "profilePicture": "/donald.webp"
+  },
+  {
+    "id": 6,
+    "name": "Arjun Patel",
+    "category": "Dancer",
+    "priceRange": "1500-5000",
+    "location": "Ahmedabad",
+    "languages": ["Gujarati", "Hindi"],
+    "profilePicture": "/donald.webp"
+  },
+  {
+    "id": 7,
+    "name": "Sanya Reddy",
+    "category": "DJ",
+    "priceRange": "4000-9000",
+    "location": "Hyderabad",
+    "languages": ["Telugu", "English"],
+    "profilePicture": "/donald.webp"
   }
 ]
