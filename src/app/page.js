@@ -1,22 +1,46 @@
+'use client';
+
 import Link from 'next/link';
-import { ArtistCard } from '@/components/ArtistCard';
-import artists from '@/lib/artists.json';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
-    <div className="container mx-auto p-4">
-      <header className="text-center mb-8">
-        <h1 className="text-4xl font-bold">Welcome to Artistly</h1>
-        <p className="text-lg">Book top artists for your events</p>
-        <Link href="/artists" className="mt-4 inline-block px-6 py-2 bg-blue-600 text-white rounded">
-          Explore Artists
-        </Link>
-      </header>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {artists.slice(0, 4).map((artist) => (
-          <ArtistCard key={artist.id} artist={artist} />
-        ))}
-      </div>
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Background Image */}
+      <div
+        className="fixed inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/background_eventful.jpg')" }}
+      />
+      {/* Dark overlay with blur */}
+      <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-0" />
+
+      {/* Main Content */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 flex flex-col items-center justify-center text-center min-h-screen px-4"
+      >
+        <h1 className="text-5xl font-bold text-white mb-4 drop-shadow-lg">Welcome to Artistly</h1>
+        <p className="text-lg text-gray-300 mb-8 max-w-xl">
+          Discover and book top-tier artists to elevate your events.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link
+            href="/artists"
+            className="px-6 py-3 bg-purple-600 text-white rounded-md text-lg font-medium hover:bg-purple-500 transition"
+          >
+            Explore Artists
+          </Link>
+          <Link
+            href="/login"
+            className="px-6 py-3 border border-white text-white rounded-md text-lg font-medium hover:bg-white hover:text-black transition"
+          >
+            Login
+          </Link>
+        </div>
+      </motion.div>
     </div>
   );
 }

@@ -1,48 +1,81 @@
 'use client';
 
-// artists/page.jsx: Displays filtered artist cards with filter controls
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { ArtistCard } from '@/components/ArtistCard';
 import { FilterBar } from '@/components/FilterBar';
 import artists from '@/lib/artists.json';
 
 export default function Artists() {
-  // State for filtered artists
   const [filteredArtists, setFilteredArtists] = useState(artists);
 
-  // Handle multiple filters
   const handleFilter = (filters) => {
     const { category, location, priceRange } = filters;
     const filtered = artists.filter((artist) => {
-      // Check category filter (if set)
       const matchesCategory = category ? artist.category === category : true;
-      // Check location filter (case-insensitive, if set)
       const matchesLocation = location
         ? artist.location.toLowerCase().includes(location.toLowerCase())
         : true;
-      // Check price range filter (if set)
       const matchesPriceRange = priceRange ? artist.priceRange === priceRange : true;
-      // Return true only if all conditions are met
       return matchesCategory && matchesLocation && matchesPriceRange;
     });
     setFilteredArtists(filtered);
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">Find Artists</h1>
-      <FilterBar onFilter={handleFilter} />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="container mx-auto px-4 py-6 text-white">
+      {/* Heading */}
+      <motion.h1
+        className="text-3xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Find Performing Artists
+      </motion.h1>
+
+      {/* Filter Bar */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.4 }}
+        className="mb-8"
+      >
+        <FilterBar onFilter={handleFilter} />
+      </motion.div>
+
+      {/* Artist Cards */}
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 0.1,
+            },
+          },
+        }}
+      >
         {filteredArtists.length > 0 ? (
           filteredArtists.map((artist) => (
-            <ArtistCard key={artist.id} artist={artist} />
+            <motion.div
+              key={artist.id}
+              className="bg-[#2c2c2e] p-4 rounded-xl shadow-md hover:shadow-purple-500/20 transition-shadow duration-300"
+              whileHover={{ scale: 1.02 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ArtistCard artist={artist} />
+            </motion.div>
           ))
         ) : (
-          <p className="text-center text-gray-600 col-span-full">
+          <p className="text-center text-gray-400 col-span-full mt-6">
             No artists found matching your filters.
           </p>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 }
