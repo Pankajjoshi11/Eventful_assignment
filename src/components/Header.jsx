@@ -41,12 +41,12 @@ export function Header() {
         scrolled ? 'bg-gray-900 shadow-md' : 'bg-transparent'
       )}
     >
-      <div className="container mx-auto flex justify-between items-center p-4">
-        <Link href="/" className="text-xl font-bold tracking-tight text-purple-400">
+      <div className="container mx-auto flex justify-between items-center p-4 pb-6 px-10">
+        <Link href="/" className="text-4xl font-bold tracking-tight text-purple-400">
           Artistly
         </Link>
 
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex text-lg items-center space-x-6">
           <Link
             href="/artists"
             className={cn(

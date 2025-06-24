@@ -212,7 +212,7 @@ export function ArtistForm() {
           {/* Submit Button */}
           <Button
             type="submit"
-            className="w-full mt-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:scale-[1.02] transition-all"
+            className="w-80 h-12 mt-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:scale-[1.02] transition-all"
           >
             Submit Artist Profile
           </Button>
