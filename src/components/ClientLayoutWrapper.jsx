@@ -10,7 +10,7 @@ export default function ClientLayoutWrapper({ children }) {
     <main
       className={`${
         isHome
-          ? 'h-screen overflow-hidden flex items-center justify-center'
+          ? 'min-h-screen overflow-y-auto flex flex-col items-center justify-center'
           : 'min-h-screen overflow-y-auto'
       } flex-1`}
     >
